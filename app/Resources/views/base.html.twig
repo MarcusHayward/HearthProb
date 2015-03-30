@@ -2,11 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}HearthChance{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+            <div class="page-header">
+                <h1>{% block headline %}{% block page_title %}{% endblock %}{% endblock %}</h1>
+            </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
