@@ -7,19 +7,23 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ProbabilityType extends AbstractType
 {
+    CONST REMAINING = 'remaining';
+    CONST DECK_SIZE = 'deckSize';
+    CONST IN_MOVES = 'inMoves';
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add(
-                'remaining',
+                ProbabilityType::REMAINING,
                 'number'
             )
             ->add(
-                'size',
+                ProbabilityType::DECK_SIZE,
                 'number'
             )
             ->add(
-                'inMoves',
+                ProbabilityType::IN_MOVES,
                 'number'
             );
     }

@@ -27,23 +27,31 @@ class DashboardAssembler
      */
     public function assemble()
     {
-//        return $this->createForm();
-        return  $this->formFactory->create(new ProbabilityType());
+        return $this->createForm();
     }
 
-//    public function handleAndFindProbability(Request $request)
-//    {
-//        $form = $this->createForm();
-//
-//        if ($request->isMethod('POST')) {
-//            $form->bind($request);
-//            if ($form->isValid()) {
-//                echo $form->getData();
-//            }
-//        }
-//
-//        return 10;
-//    }
+    /**
+     * @param Request $request
+     *
+     * @return float
+     */
+    public function handleAndFindProbability(Request $request)
+    {
+        $form = $this->createForm();
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+            if ($form->isValid()) {
+                return (new DrawCalculator())->calculate(
+                    $form->getData()[ProbabilityType::REMAINING],
+                    $form->getData()[ProbabilityType::DECK_SIZE],
+                    $form->getData()[ProbabilityType::IN_MOVES]
+                );
+            }
+        }
+
+        throw new \InvalidArgumentException("The form received was invalid");
+    }
 
     /**
      * @return FormInterface
