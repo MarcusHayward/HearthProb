@@ -35,7 +35,8 @@
         "sensiolabs/behat-page-object-extension": "~2.0@dev",
         "behat/mink-selenium2-driver": "*",
         "behat/mink-browserkit-driver": "*",
-        "fabpot/php-cs-fixer": "~0.3@dev"
+        "fabpot/php-cs-fixer": "~0.3@dev",
+        "heroku/heroku-buildpack-php": "*"
     },
     "scripts": {
         "post-root-package-install": [
