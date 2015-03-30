@@ -7,7 +7,6 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class DashboardAssemblerSpec extends ObjectBehavior
 {
@@ -20,10 +19,5 @@ class DashboardAssemblerSpec extends ObjectBehavior
     {
         $formFactory->create(new ProbabilityType())->willReturn($form);
         $this->assemble()->shouldBe($form);
-    }
-
-    function it_handles_the_request(Request $request)
-    {
-        $this->handleAndFindProbability($request);
     }
 }
