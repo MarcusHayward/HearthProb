@@ -1,0 +1,4 @@
+app:
+    resource: "@HearthProbBundle/Controller/"
+    type:     annotation
+    prefix:   /
