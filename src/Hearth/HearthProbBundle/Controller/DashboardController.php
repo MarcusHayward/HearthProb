@@ -3,9 +3,7 @@
 namespace Hearth\HearthProbBundle\Controller;
 
 use Hearth\HearthProb\DashboardAssembler;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route(service="controllers.dashboard")
@@ -30,11 +28,16 @@ class DashboardController
      * @Method({"GET"})
      * @Template()
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     *
      * @return string
      */
     public function indexAction()
     {
-        return ["item" => $this->assembler->assemble()];
+//        if ('POST' === $request->getMethod()) {
+//            $probability = $this->assembler->handleAndFindProbability($request);
+//        }
+
+        return ["form" => $this->assembler->assemble()->createView()];
     }
 }

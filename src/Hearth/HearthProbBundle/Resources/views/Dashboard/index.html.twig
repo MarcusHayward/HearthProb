@@ -2,6 +2,15 @@
 {% block page_title %}HearthChance{% endblock %}
 {% block body %}
 
-    {{ item }}
+    <div class="row">
+        <div class="col-md-6">
+            <form action="{{ path('home') }}" method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+                <p>
+                    <button class="btn btn-success" type="submit">Calculate</button>
+                </p>
+            </form>
+        </div>
+    </div>
 
 {% endblock %}

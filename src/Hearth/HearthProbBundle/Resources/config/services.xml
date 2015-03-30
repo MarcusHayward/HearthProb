@@ -11,6 +11,7 @@
         </service>
 
         <service id="assembler.dashboard" class="Hearth\HearthProb\DashboardAssembler">
+            <argument type="service" id="form.factory"/>
         </service>
 
     </services>
