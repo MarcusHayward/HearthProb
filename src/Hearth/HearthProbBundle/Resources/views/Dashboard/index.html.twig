@@ -13,6 +13,9 @@
         </div>
     </div>
 
-    <p>The chances of that happening are: {{ results }}%</p>
-
+    {% if results == -1 %}
+        <p>Enter some figures above so I can work out the odds of it happening</p>
+    {% else %}
+        <p>The chances of that happening are: {{ results }}%</p>
+    {% endif %}
 {% endblock %}
