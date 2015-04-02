@@ -16,15 +16,21 @@ class ProbabilityType extends AbstractType
         $builder
             ->add(
                 ProbabilityType::REMAINING,
-                'number'
+                'number',
+                ['max_length' => 2, 'attr' => ['class' => 'numberInput']]
             )
             ->add(
                 ProbabilityType::DECK_SIZE,
-                'number'
+                'number',
+                ['max_length' => 2, 'attr' => ['class' => 'numberInput']]
             )
             ->add(
                 ProbabilityType::IN_MOVES,
-                'number'
+                'number',
+                [
+                    'max_length' => 2,
+                    'attr' => ['class' => 'numberInput'],
+                ]
             );
     }
 

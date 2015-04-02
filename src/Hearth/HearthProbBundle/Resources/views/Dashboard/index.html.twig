@@ -2,7 +2,7 @@
 {% block page_title %}HearthChance{% endblock %}
 {% block body %}
 
-    <div class="row">
+    <div class="body">
         <div class="col-md-6">
             <form action="{{ path('home') }}" method="post" {{ form_enctype(form) }}>
                 {{ form_widget(form) }}
@@ -11,13 +11,14 @@
                 </p>
             </form>
         </div>
+        <br/>
+
+        {% if results == -1 %}
+            <p>Enter some figures above so I can work out the odds of it happening</p>
+        {% else %}
+            <p>The chances of that happening are:</p>
+            <div class="results">{{ results }}%</div>
+        {% endif %}
+        <div class="twitter">Created by <a href="https://www.twitter.com/marcus_hayward">@marcus_hayward</a></div>
     </div>
-
-    {% if results == -1 %}
-        <p>Enter some figures above so I can work out the odds of it happening</p>
-    {% else %}
-        <p>The chances of that happening are:</p>
-        <div class="results">{{ results }}%</div>
-    {% endif %}
-
 {% endblock %}
